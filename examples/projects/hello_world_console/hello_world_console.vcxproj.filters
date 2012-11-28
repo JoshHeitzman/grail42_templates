@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="C++ Sources">
+      <UniqueIdentifier>{58BBDD5F-8E50-4244-814F-641EC945F5BA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Android Package">
+      <UniqueIdentifier>{ADE9F3B1-E876-45D1-B5EE-2499D42F70F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Java Sources">
+      <UniqueIdentifier>{C075D52C-6BB7-4000-95B7-A2B2D4214318}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="android_package\AndroidManifest.xml">
+      <Filter>Android Package</Filter>
+    </None>
+    <None Include="android_package\src\net\examples\hello_world_console\FauxConsole.java">
+      <Filter>Java Sources</Filter>
+    </None>
+    <None Include="android_package\build.xml">
+      <Filter>Android Package</Filter>
+    </None>
+    <None Include="android_package\res\values\strings.xml">
+      <Filter>Android Package</Filter>
+    </None>
+    <None Include="android_package\project.properties">
+      <Filter>Android Package</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="hello_world_console.cpp">
+      <Filter>C++ Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
