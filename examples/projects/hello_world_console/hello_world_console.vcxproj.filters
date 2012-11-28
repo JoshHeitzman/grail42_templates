@@ -1,36 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="C++ Sources">
+    <Filter Include="C/C++ Source Files">
       <UniqueIdentifier>{58BBDD5F-8E50-4244-814F-641EC945F5BA}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx</Extensions>
     </Filter>
-    <Filter Include="Android Package">
+    <Filter Include="C/C++ Header Files">
+      <UniqueIdentifier>{949C2E01-D79B-417F-A0BE-990795B40D6C}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Android Package Files">
       <UniqueIdentifier>{ADE9F3B1-E876-45D1-B5EE-2499D42F70F5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Java Sources">
+    <Filter Include="Java Source Files">
       <UniqueIdentifier>{C075D52C-6BB7-4000-95B7-A2B2D4214318}</UniqueIdentifier>
+      <Extensions>java;class</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="android_package\AndroidManifest.xml">
-      <Filter>Android Package</Filter>
+      <Filter>Android Package Files</Filter>
     </None>
     <None Include="android_package\src\net\examples\hello_world_console\FauxConsole.java">
-      <Filter>Java Sources</Filter>
+      <Filter>Java Source Files</Filter>
     </None>
     <None Include="android_package\build.xml">
-      <Filter>Android Package</Filter>
+      <Filter>Android Package Files</Filter>
     </None>
     <None Include="android_package\res\values\strings.xml">
-      <Filter>Android Package</Filter>
+      <Filter>Android Package Files</Filter>
     </None>
     <None Include="android_package\project.properties">
-      <Filter>Android Package</Filter>
+      <Filter>Android Package Files</Filter>
     </None>
+    <None Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>C/C++ Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hello_world_console.cpp">
-      <Filter>C++ Sources</Filter>
+      <Filter>C/C++ Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>C/C++ Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

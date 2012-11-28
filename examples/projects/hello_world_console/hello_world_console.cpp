@@ -6,15 +6,23 @@ See accompanying file LICENSE_1_0.txt or online copies at:
 * http://directory.fsf.org/wiki/License:Boost1.0
 * http://en.wikipedia.org/wiki/Boost_Software_License                */
 
-#include <stdio.h>
-#include <jni.h>
-#include <android/log.h>
+#include "stdafx.h"
 
 int faux_main()
 {
 	printf("Hello world.\n");
 	return 1;
 }
+
+#if defined(_WIN32)
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	faux_main();
+	return 0;
+}
+
+#elif defined(__ANDROID__)
 
 extern "C" JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM * vm, void * reserved)
 {
@@ -38,3 +46,5 @@ extern "C" JNIEXPORT jint JNICALL Java_net_examples_hello_1world_1console_FauxCo
 
 	return result;
 }
+
+#endif
