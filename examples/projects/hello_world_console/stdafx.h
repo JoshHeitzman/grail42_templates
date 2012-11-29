@@ -16,19 +16,38 @@ See accompanying file LICENSE_1_0.txt or online copies at:
 
 #include <stdio.h>
 
-#if defined(_WIN32)
+#if !defined(HWC_PLATFORM_WIN32) && !defined(HWC_PLATFORM_ANDROID) && !defined(HWC_PLATFORM_NACL)
+#if defined(_WIN32) && !defined(PPAPI)
+#define HWC_PLATFORM_WIN32
+#elif defined(__ANDROID__)
+#define HWC_PLATFORM_ANDROID
+#elif defined(__native_client__) || defined(PPAPI)
+#define HWC_PLATFORM_NACL
+#else
+#error Could not deduce target platform.
+#endif
+#endif // !defined(HWC_PLATFORM_WIN32) && !defined(HWC_PLATFORM_ANDROID) && !defined(HWC_PLATFORM_NACL)
+
+
+#if defined(HWC_PLATFORM_WIN32)
 
 #include <tchar.h>
 
-#elif defined(__ANDROID__)
+#elif defined(HWC_PLATFORM_ANDROID)
 
 #include <jni.h>
 #include <android/log.h>
 
-#else
+#elif defined(HWC_PLATFORM_NACL)
+
+#include "ppapi/cpp/instance.h"
+#include "ppapi/cpp/module.h"
+#include "ppapi/cpp/var.h"
+
+#else // HWC_PLATFORM_*
 
 #error Could not deduce target platform.
 
-#endif
+#endif // HWC_PLATFORM_*
 
 #endif // HG_6ED6281E3B354BAE95FD2C7E72CAF8D7

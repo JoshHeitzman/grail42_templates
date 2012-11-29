@@ -34,6 +34,7 @@
       <Filter>Android Package Files</Filter>
     </None>
     <None Include="readme.txt" />
+    <None Include="index.html" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">

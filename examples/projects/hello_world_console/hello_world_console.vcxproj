@@ -5,6 +5,18 @@
       <Configuration>Debug</Configuration>
       <Platform>Android</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|NaCl32">
+      <Configuration>Debug</Configuration>
+      <Platform>NaCl32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|NaCl64">
+      <Configuration>Debug</Configuration>
+      <Platform>NaCl64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|PPAPI">
+      <Configuration>Debug</Configuration>
+      <Platform>PPAPI</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
@@ -16,6 +28,18 @@
     <ProjectConfiguration Include="Release|Android">
       <Configuration>Release</Configuration>
       <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|NaCl32">
+      <Configuration>Release</Configuration>
+      <Platform>NaCl32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|NaCl64">
+      <Configuration>Release</Configuration>
+      <Platform>NaCl64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|PPAPI">
+      <Configuration>Release</Configuration>
+      <Platform>PPAPI</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
@@ -56,12 +80,33 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|NaCl32'">
+    <NaClAddInVersion>1</NaClAddInVersion>
+    <VSNaClSDKRoot>$(nacl_sdk_root)</VSNaClSDKRoot>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|NaCl64'">
+    <NaClAddInVersion>1</NaClAddInVersion>
+    <VSNaClSDKRoot>$(nacl_sdk_root)</VSNaClSDKRoot>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PPAPI'">
+    <NaClAddInVersion>1</NaClAddInVersion>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|NaCl32'">
+    <NaClAddInVersion>1</NaClAddInVersion>
+    <VSNaClSDKRoot>$(nacl_sdk_root)</VSNaClSDKRoot>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|NaCl64'">
+    <NaClAddInVersion>1</NaClAddInVersion>
+    <VSNaClSDKRoot>$(nacl_sdk_root)</VSNaClSDKRoot>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|PPAPI'">
+    <NaClAddInVersion>1</NaClAddInVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -73,13 +118,47 @@
     <AntBuild>
       <AntBuildPath>$(ProjectDir)\android_package</AntBuildPath>
     </AntBuild>
+    <ClCompile>
+      <PreprocessorDefinitions>HWC_PLATFORM_ANDROID;$(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|NaCl32'">
+    <PostBuildEvent>
+      <Command>
+        set PATH=$(Path)
+        if not exist $(ToolchainName) mkdir $(ToolchainName)
+        python.exe "$(VSNaClSDKRoot)\tools\create_nmf.py" -D "$(VSNaClSDKRoot)\toolchain\win_x86_$(ToolchainName)\bin\x86_64-nacl-objdump.exe" -L "$(VSNaClSDKRoot)\toolchain\win_x86_$(ToolchainName)\x86_64-nacl\lib" -L "$(VSNaClSDKRoot)\toolchain\win_x86_$(ToolchainName)\x86_64-nacl\lib32" -o $(ToolchainName)\$(ProjectName).nmf -t $(ToolchainName) -s $(ToolchainName) "$(TargetPath)"
+      </Command>
+      <Message>Creating NMF</Message>
+    </PostBuildEvent>
+    <ClCompile>
+      <PreprocessorDefinitions>HWC_PLATFORM_NACL;NACL;$(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|NaCl64'">
+    <PostBuildEvent>
+      <Command>
+        set PATH=$(Path)
+        if not exist $(ToolchainName) mkdir $(ToolchainName)
+        python.exe "$(VSNaClSDKRoot)\tools\create_nmf.py" -D "$(VSNaClSDKRoot)\toolchain\win_x86_$(ToolchainName)\bin\x86_64-nacl-objdump.exe" -L "$(VSNaClSDKRoot)\toolchain\win_x86_$(ToolchainName)\x86_64-nacl\lib" -L "$(VSNaClSDKRoot)\toolchain\win_x86_$(ToolchainName)\x86_64-nacl\lib32" -o $(ToolchainName)\$(ProjectName).nmf -t $(ToolchainName) -s $(ToolchainName) "$(TargetPath)"
+      </Command>
+      <Message>Creating NMF</Message>
+    </PostBuildEvent>
+    <ClCompile>
+      <PreprocessorDefinitions>HWC_PLATFORM_NACL;NACL;$(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PPAPI'">
+    <ClCompile>
+      <PreprocessorDefinitions>HWC_PLATFORM_NACL;PPAPI;$(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;$(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -103,6 +182,40 @@
       <AntBuildPath>$(ProjectDir)\android_package</AntBuildPath>
       <AntBuildType>Debug</AntBuildType>
     </AntBuild>
+    <ClCompile>
+      <PreprocessorDefinitions>HWC_PLATFORM_ANDROID;$(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|NaCl32'">
+    <PostBuildEvent>
+      <Command>
+        set PATH=$(Path)
+        if not exist $(ToolchainName) mkdir $(ToolchainName)
+        python.exe "$(VSNaClSDKRoot)\tools\create_nmf.py" -D "$(VSNaClSDKRoot)\toolchain\win_x86_$(ToolchainName)\bin\x86_64-nacl-objdump.exe" -L "$(VSNaClSDKRoot)\toolchain\win_x86_$(ToolchainName)\x86_64-nacl\lib" -L "$(VSNaClSDKRoot)\toolchain\win_x86_$(ToolchainName)\x86_64-nacl\lib32" -o $(ToolchainName)\$(ProjectName).nmf -t $(ToolchainName) -s $(ToolchainName) "$(TargetPath)"
+      </Command>
+      <Message>Creating NMF</Message>
+    </PostBuildEvent>
+    <ClCompile>
+      <PreprocessorDefinitions>HWC_PLATFORM_NACL;NACL;$(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|NaCl64'">
+    <PostBuildEvent>
+      <Command>
+        set PATH=$(Path)
+        if not exist $(ToolchainName) mkdir $(ToolchainName)
+        python.exe "$(VSNaClSDKRoot)\tools\create_nmf.py" -D "$(VSNaClSDKRoot)\toolchain\win_x86_$(ToolchainName)\bin\x86_64-nacl-objdump.exe" -L "$(VSNaClSDKRoot)\toolchain\win_x86_$(ToolchainName)\x86_64-nacl\lib" -L "$(VSNaClSDKRoot)\toolchain\win_x86_$(ToolchainName)\x86_64-nacl\lib32" -o $(ToolchainName)\$(ProjectName).nmf -t $(ToolchainName) -s $(ToolchainName) "$(TargetPath)"
+      </Command>
+      <Message>Creating NMF</Message>
+    </PostBuildEvent>
+    <ClCompile>
+      <PreprocessorDefinitions>HWC_PLATFORM_NACL;NACL;$(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|PPAPI'">
+    <ClCompile>
+      <PreprocessorDefinitions>HWC_PLATFORM_NACL;PPAPI;$(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -111,7 +224,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;$(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,6 +255,7 @@
     <None Include="android_package\project.properties" />
     <None Include="android_package\res\values\strings.xml" />
     <None Include="android_package\src\net\examples\hello_world_console\FauxConsole.java" />
+    <None Include="index.html" />
     <None Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>

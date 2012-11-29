@@ -14,7 +14,7 @@ int faux_main()
 	return 1;
 }
 
-#if defined(_WIN32)
+#if defined(HWC_PLATFORM_WIN32)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -22,7 +22,21 @@ int _tmain(int argc, _TCHAR* argv[])
 	return 0;
 }
 
-#elif defined(__ANDROID__)
+#elif defined(HWC_PLATFORM_ANDROID) || defined(HWC_PLATFORM_NACL)
+
+int faux_main_wrapper()
+{
+	int result = faux_main();
+
+	// Stdout isn't automatically flushed on Android or NaCL, so explicitly flush it to ensure all output is logged 
+	// prior to shutdown.  On Android the stdout buffer between the JVM and native code doesn't appear to be shared 
+	// as flushing from the activity has no apparent effect.
+	fflush(stdout);
+
+	return result;
+}
+
+#if defined(HWC_PLATFORM_ANDROID)
 
 extern "C" JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM * vm, void * reserved)
 {
@@ -32,19 +46,56 @@ extern "C" JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM * vm, void * reserved)
 	fflush(stdout);
 
 	// Returning JNI_VERSION_1_1 on Android 2.2 results in "JNI_OnLoad returned bad version (65537)".
-    return JNI_VERSION_1_2;
+	return JNI_VERSION_1_2;
 }
 
 extern "C" JNIEXPORT jint JNICALL Java_net_examples_hello_1world_1console_FauxConsole_main(JNIEnv * env, jobject  obj)
 {
-	int result = faux_main();
+	return faux_main_wrapper();
+}
 
-	// Stdout isn't automatically flushed, so explicitly flush it to ensure all output is logged prior to shutdown.
-	// Also the stdout buffer between the JVM and native code doesn't appear to be shared as flushing from the 
-	// activity has no apparent effect.
-	fflush(stdout);
+#elif defined(HWC_PLATFORM_NACL)
 
-	return result;
+class Instance : public pp::Instance
+{
+public:
+	explicit Instance(PP_Instance instance):
+		pp::Instance(instance)
+	{}
+
+	virtual ~Instance() {}
+
+	virtual bool Init(uint32_t, const char* [], const char* [])
+	{
+		int result = faux_main_wrapper();
+		this->Instance::PostMessage(pp::Var("quit"));
+		return true;
+	}
+};
+
+class Module : public pp::Module
+{
+public:
+	// auto-generated default constructor is sufficient
+
+	virtual ~Module() {}
+
+	virtual pp::Instance* CreateInstance(PP_Instance instance)
+	{
+		return new Instance(instance);
+	}
+};
+
+namespace pp
+{
+
+Module* CreateModule()
+{
+	return new ::Module();
+}
+
 }
 
 #endif
+
+#endif // defined(HWC_PLATFORM_ANDROID) || defined(HWC_PLATFORM_NACL)
