@@ -1,3 +1,25 @@
+Overview
+--------
+
+  Demonstrates targeting the Android NDK, the Chrome Native Client SDK, and the 
+  Windows SDK all from the same Visual Studio 2010 project.  Both 32-bit and 
+  64-bit platforms are supported for Windows and Chrome Native Client (NaCl).
+  
+  Also demonstrates creating a faux console app for Android that allows the apps 
+  stdout to be easily emitted in a Windows command prompt via the batch file 
+  %grail42_core_cmd%\android\faux_console\run_app.cmd supplied by the Grail42 
+  Core sibling project (see the Grail42 project referenced above).
+  
+  The NaCl platform is configured by default to run from the standalone 
+  commandline tool sel_ldr*.exe rather than from Chrome to provide a consistent 
+  console experience.  When run in Chrome, the project demonstrates doing so 
+  as a faux console app that allows the plug-ins stdout to be easily emitted 
+  in a Windows command prompt via the batch file that also starts and stops 
+  the necessary simple web server.  The batch file is supplied by the Grail42 
+  Core project at %grail42_core_cmd%\nacl\faux_console\run_nexe_in_chrome.cmd 
+  and %grail42_core_cmd%\nacl\run_nexe_standalone.cmd providesa convienence 
+  batch file o run the plug-in standalone in sel_ldr*.exe
+
 Configuration|Platfrom Caveats and Notes
 ----------------------------------------
 
