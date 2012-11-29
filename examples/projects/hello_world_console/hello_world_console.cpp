@@ -11,18 +11,31 @@ See accompanying file LICENSE_1_0.txt or online copies at:
 int faux_main()
 {
 	printf("Hello world.\n");
-	return 1;
-}
-
-#if defined(HWC_PLATFORM_WIN32)
-
-int _tmain(int argc, _TCHAR* argv[])
-{
-	faux_main();
 	return 0;
 }
 
-#elif defined(HWC_PLATFORM_ANDROID) || defined(HWC_PLATFORM_NACL)
+// 1 means that the nexe will be run from the commandline in sel_ldr (e.g. using %grail42_core_cmd%\nacl\faux_console\run_nexe_standalone.cmd)
+// 0 means that the nexe will be run in Chrome (e.g. using %grail42_core_cmd%\nacl\faux_console\run_nexe_in_chrome.cmd).
+// If main is defined the nexe will not load correctly in Chrome (even if CreateModule is present).
+// Having CreateModule present doesn't prevent loading in sel_ldr, but it is not included to avoid 
+// unintentional errors.  If VS allowed cloning project platforms rather than just solution platforms
+// then this would be setup as a seperate NaCl64-Standalone platform.
+#if 1
+#define HWC_PLATFORM_NACL_STANDALONE
+#endif
+
+#if defined(HWC_PLATFORM_WIN32) || (defined(HWC_PLATFORM_NACL) && defined(HWC_PLATFORM_NACL_STANDALONE))
+
+#if defined(HWC_PLATFORM_WIN32)
+int _tmain(int argc, _TCHAR* argv[])
+#elif defined(HWC_PLATFORM_NACL_STANDALONE)
+int main(int argc, char* argv[])
+#endif
+{
+	return faux_main();
+}
+
+#elif defined(HWC_PLATFORM_ANDROID) || (defined(HWC_PLATFORM_NACL) && !defined(HWC_PLATFORM_NACL_STANDALONE))
 
 int faux_main_wrapper()
 {
@@ -68,6 +81,7 @@ public:
 	virtual bool Init(uint32_t, const char* [], const char* [])
 	{
 		int result = faux_main_wrapper();
+		// TODO log result so it can be picked up by run_nexe_in_chrome.cmd
 		this->Instance::PostMessage(pp::Var("quit"));
 		return true;
 	}

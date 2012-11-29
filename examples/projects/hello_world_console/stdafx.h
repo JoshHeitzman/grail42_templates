@@ -28,7 +28,6 @@ See accompanying file LICENSE_1_0.txt or online copies at:
 #endif
 #endif // !defined(HWC_PLATFORM_WIN32) && !defined(HWC_PLATFORM_ANDROID) && !defined(HWC_PLATFORM_NACL)
 
-
 #if defined(HWC_PLATFORM_WIN32)
 
 #include <tchar.h>
@@ -43,10 +42,6 @@ See accompanying file LICENSE_1_0.txt or online copies at:
 #include "ppapi/cpp/instance.h"
 #include "ppapi/cpp/module.h"
 #include "ppapi/cpp/var.h"
-
-#else // HWC_PLATFORM_*
-
-#error Could not deduce target platform.
 
 #endif // HWC_PLATFORM_*
 
