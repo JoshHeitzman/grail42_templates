@@ -1,0 +1,50 @@
+[net.examples.hello_world_console]
+logical.component.identifier
+platform.android.package.identifier
+platform.jvm.package.identifier
+alias0=net_examples_hello_1world_1console
+allas1=net\examples\hello_world_console
+issupersetof=hello_world_console
+
+[\net\examples\hello_world_console\]
+filesystem.path.subset
+
+[hello_world_console]
+logical.component.identifier
+logical.project.identifier
+filesystem.file.name.without.extension
+filesystem.directory.name
+alias0=Hello World Console
+
+[BC68A4D8-6923-4D2A-AE9D-02929B1ECF13]
+uuid.random
+application.ide.vs.project.identifier
+
+[ACFA037F-58C3-4AF0-A606-924A594A1246]
+uuid.random
+application.ide.vs.solution.identifier
+
+[58BBDD5F-8E50-4244-814F-641EC945F5BA]
+uuid.random
+application.ide.vs.solution.filter.identifier
+
+[949C2E01-D79B-417F-A0BE-990795B40D6C]
+uuid.random
+application.ide.vs.solution.filter.identifier
+
+[ADE9F3B1-E876-45D1-B5EE-2499D42F70F5]
+uuid.random
+application.ide.vs.solution.filter.identifier
+
+[C075D52C-6BB7-4000-95B7-A2B2D4214318]
+uuid.random
+application.ide.vs.solution.filter.identifier
+
+[CopyrightNotice]
+linepart0=Copyright (C) 2012 Josh Heitzman
+linepart1=Distributed under the Boost Software License, Version 1.0.
+linepart2=See accompanying file LICENSE_1_0.txt or online copies at:
+linepart3=* http://www.boost.org/LICENSE_1_0.txt
+linepart4=* http://opensource.org/licenses/BSL-1.0
+linepart5=* http://directory.fsf.org/wiki/License:Boost1.0
+linepart6=* http://en.wikipedia.org/wiki/Boost_Software_License
