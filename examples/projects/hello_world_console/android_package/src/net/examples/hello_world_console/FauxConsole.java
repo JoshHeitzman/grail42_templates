@@ -8,7 +8,6 @@ See accompanying file LICENSE_1_0.txt or online copies at:
 
 package net.examples.hello_world_console;
 
-import java.lang.reflect.Method;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
