@@ -14,6 +14,7 @@ logical.component.identifier
 logical.project.identifier
 filesystem.file.name.without.extension
 filesystem.directory.name
+application.ide.vs.project.name
 alias0=Hello World Console
 
 [BC68A4D8-6923-4D2A-AE9D-02929B1ECF13]
