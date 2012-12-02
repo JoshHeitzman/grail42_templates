@@ -6,33 +6,18 @@
 # * http://directory.fsf.org/wiki/License:Boost1.0
 # * http://en.wikipedia.org/wiki/Boost_Software_License
 
-# The only command line argument is a directory that must contain one file with 
-# the extension .grail42.codeproject.template
-
-# Load the template file.  Template files are config with the following
-# structure:
+# Load annotations for all files and directories in the source directory tree.
+# 
+# Section names and their aliases to be replaced in paths and files are:
+# *[application.ide.vs.project.identifier]
+# *[application.ide.vs.solution.identifier]
+# *[application.ide.vs.solution.filter.identifier]
+# *[logical.component.identifier]
 #
-# FileStructure
-#    Files - relative paths to files whose filename will remain the same.
-#    FilesWithNamesToChange - relative paths to files whose filename will be
-#        be changed.
-#    DirectoriesToChange - relative path to directory whose name will be 
-#        changed.
-# ModifyFiles<id>
-#    Files - files these modifications are to be applied to.
-#    ReplaceTargets - strings to replace.
-#    DeleteLinesContaining - any line containing one of these strings will not
-#        included in the destination file.
-#    UUIDsToRegenerate - UUIDs to replace with newly generated UUIDs
-#
-# The list of pairs presented to the user for editing is generated adding
-# to a list the values not already in the last from:
-#    - Just the filenames (without path or extension) from realtive paths
-#      included in FileStructure.FilesWithNamesToChange
-#    - Just the last directory segement FileStructure.DirectoriesToChange
-#    - The values in the ReplaceTargets fields of ModifyFiles*.
+# Remove lines that contain:
+#    - CopyrightNotice[linepart*]
 
-user_instructions = ("""
+editing_instructions = ("""
 Please modify each right hand value in the list of pairs that follows and then
 close this editor process.
 
