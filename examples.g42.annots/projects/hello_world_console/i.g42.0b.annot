@@ -1,21 +1,18 @@
 [net.examples.hello_world_console]
-logical.component.identifier
+abstract.component.identifier
 platform.android.package.identifier
 platform.jvm.package.identifier
-alias0=net_examples_hello_1world_1console
-allas1=net\examples\hello_world_console
-issupersetof=hello_world_console
-
-[\net\examples\hello_world_console\]
-filesystem.path.subset
+aliases[0]=net_examples_hello_1world_1console
+aliases[1]=net\examples\hello_world_console
+relation.superset=hello_world_console
 
 [hello_world_console]
-logical.component.identifier
-logical.project.identifier
+abstract.component.identifier
+abstract.project.identifier
 filesystem.file.name.without.extension
 filesystem.directory.name
 application.ide.vs.project.name
-alias0=Hello World Console
+aliases[0]=Hello World Console
 
 [BC68A4D8-6923-4D2A-AE9D-02929B1ECF13]
 uuid.random
@@ -41,11 +38,11 @@ application.ide.vs.solution.filter.identifier
 uuid.random
 application.ide.vs.solution.filter.identifier
 
-[CopyrightNotice]
-linepart0=Copyright (C) 2012 Josh Heitzman
-linepart1=Distributed under the Boost Software License, Version 1.0.
-linepart2=See accompanying file LICENSE_1_0.txt or online copies at:
-linepart3=* http://www.boost.org/LICENSE_1_0.txt
-linepart4=* http://opensource.org/licenses/BSL-1.0
-linepart5=* http://directory.fsf.org/wiki/License:Boost1.0
-linepart6=* http://en.wikipedia.org/wiki/Boost_Software_License
+[legal.copyright.notice]
+partial_lines[0]=Copyright (C) 2012 Josh Heitzman
+partial_lines[1]=Distributed under the Boost Software License, Version 1.0.
+partial_lines[2]=See accompanying file LICENSE_1_0.txt or online copies at:
+partial_lines[3]=* http://www.boost.org/LICENSE_1_0.txt
+partial_lines[4]=* http://opensource.org/licenses/BSL-1.0
+partial_lines[5]=* http://directory.fsf.org/wiki/License:Boost1.0
+partial_lines[6]=* http://en.wikipedia.org/wiki/Boost_Software_License

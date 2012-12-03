@@ -6,16 +6,28 @@
 # * http://directory.fsf.org/wiki/License:Boost1.0
 # * http://en.wikipedia.org/wiki/Boost_Software_License
 
-# Load annotations for all files and directories in the source directory tree.
-# 
-# Section names and their aliases to be replaced in paths and files are:
-# *[application.ide.vs.project.identifier]
-# *[application.ide.vs.solution.identifier]
-# *[application.ide.vs.solution.filter.identifier]
-# *[logical.component.identifier]
+# Get annotation loader using default annotation loader and git ignore loader
+
+# Add the source directory as the directory tree fileset to load annotations 
+# for.
+
+# Add exclusion filter on request for exclude option from section named
+# system.revisioncontrol.abstract
+
+# Add request for section name and aliases for each section with option named:
+#  - application.ide.vs.project.identifier
+#  - application.ide.vs.solution.identifier
+#  - application.ide.vs.solution.filter.identifier
+#  - abstract.component.identifier
 #
-# Remove lines that contain:
-#    - CopyrightNotice[linepart*]
+# From the results the section name and aliases are the mapping values for the
+# file to edited by the user.
+
+# Add request for partial_lines option from section named
+# legal.copyright.notice
+#
+# Results used on each file to remove lines from the containing any of the 
+# partial_lines values.
 
 editing_instructions = ("""
 Please modify each right hand value in the list of pairs that follows and then
