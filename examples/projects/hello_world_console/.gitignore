@@ -1,4 +1,7 @@
-/Android/
-/chrome_data/
-/newlib/
-/win/
+Android/
+chrome_data/
+NaCl32/
+NaCl64/
+newlib/
+win/
+x64/
