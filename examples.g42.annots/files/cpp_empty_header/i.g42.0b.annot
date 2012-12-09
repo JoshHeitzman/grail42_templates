@@ -1,0 +1,18 @@
+[headername]
+filesystem.file.name.complete.without.extension
+
+[cpp_empty_header]
+filesystem.directory.name.complete
+
+[DD5AA59CEB5E44BCB659C8A0CB6138A4]
+uuid.random
+c.headerguard.partial
+
+[legal.copyright.notice]
+partial_lines[0]=Copyright (C) 2012 Josh Heitzman
+partial_lines[1]=Distributed under the Boost Software License, Version 1.0.
+partial_lines[2]=See accompanying file LICENSE_1_0.txt or online copies at:
+partial_lines[3]=* http://www.boost.org/LICENSE_1_0.txt
+partial_lines[4]=* http://opensource.org/licenses/BSL-1.0
+partial_lines[5]=* http://directory.fsf.org/wiki/License:Boost1.0
+partial_lines[6]=* http://en.wikipedia.org/wiki/Boost_Software_License

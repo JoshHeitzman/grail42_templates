@@ -9,8 +9,8 @@ relation.superset=hello_world_console
 [hello_world_console]
 abstract.component.identifier
 abstract.project.identifier
-filesystem.file.name.without.extension
-filesystem.directory.name
+filesystem.file.name.complete.without.extension
+filesystem.directory.name.complete
 application.ide.vs.project.name
 aliases[0]=Hello World Console
 
