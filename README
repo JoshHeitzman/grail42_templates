@@ -3,8 +3,22 @@ Grail42 Templates is a subproject of the Grail42 project located at:
 https://github.com/JoshHeitzman/grail42
 
 This subproject currently contains the example code projects listed below and 
-in the near future a Python script will be added to clone projects so that the
-examples can be easily used as templates for new projects.
+the Python script clonetree.py that can clone projects and files and make the
+necessary token replacements as directed by the user.
+
+CLONETREE.PY
+
+    Clones an annotated project making token replacements as directed.
+    
+    clonetree.py target
+    
+    target       The root directory of the project to clone.
+    
+    The destination will be a new subdirectory created in the current workding 
+    directory.
+    
+    For example:
+    %grail_python2_x_exe% clonetree.py %grail42_root%\templates\examples\projects\hello_world_console
 
 Hello World Console
 
@@ -26,6 +40,11 @@ Hello World Console
   Core project at %grail42_core_cmd%\nacl\faux_console\run_nexe_in_chrome.cmd 
   and %grail42_core_cmd%\nacl\run_nexe_standalone.cmd providesa convienence 
   batch file o run the plug-in standalone in sel_ldr*.exe
+
+C++ Empty Header
+
+  C++ header file with header guard using GUID and #pragma once with the 
+  pragmas necessary to disable compiler warnings when #pragma is not supported.
 
 --------------------------------------------------------------------------------
 
