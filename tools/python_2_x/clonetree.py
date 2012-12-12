@@ -258,7 +258,10 @@ destdir = os.getcwd()
 
 annotations, sourceFiles = get_files_and_annotations(target)
 
-partial_lines_to_remove = annotations.get(('legal.copyright.notice', 'partial_lines'))
+if not 'grail42_clone_retain_copyright_notice' in os.environ:
+    partial_lines_to_remove = annotations.get(('legal.copyright.notice', 'partial_lines'))
+else:
+    partial_lines_to_remove = tuple()
 
 strings_to_replace_accmulator = AccumulateStringsToReplace()
 annotations.for_each_key(strings_to_replace_accmulator)
