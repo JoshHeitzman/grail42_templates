@@ -37,7 +37,7 @@ int main(int, char* [])
 
 #elif defined(HWC_PLATFORM_ANDROID) || (defined(HWC_PLATFORM_NACL) && !defined(HWC_PLATFORM_NACL_STANDALONE))
 
-int faux_main_wrapper()
+inline int faux_main_wrapper()
 {
     int result = faux_main();
 
@@ -81,6 +81,7 @@ public:
     virtual bool Init(uint32_t, const char* [], const char* [])
     {
         int result = faux_main_wrapper();
+        ((void)result);
         // TODO log result so it can be picked up by run_nexe_in_chrome.cmd
         this->Instance::PostMessage(pp::Var("quit"));
         return true;
