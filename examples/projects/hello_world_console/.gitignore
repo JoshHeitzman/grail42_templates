@@ -2,6 +2,6 @@ Android/
 chrome_data/
 NaCl32/
 NaCl64/
-newlib/
-win/
+nacl/
+PPAPI/
 x64/
