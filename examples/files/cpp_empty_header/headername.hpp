@@ -8,9 +8,7 @@ See accompanying file LICENSE_1_0.txt or online copies at:
 
 #ifndef MACRO_PREFIX_HG_DD5AA59CEB5E44BCB659C8A0CB6138A4
 #define MACRO_PREFIX_HG_DD5AA59CEB5E44BCB659C8A0CB6138A4
-#pragma warning(push)
-#pragma warning(disable : 4068)
-#pragma once
-#pragma warning(pop)
+
+G42CORE_MC_PRAGMA_ONCE
 
 #endif // MACRO_PREFIX_HG_DD5AA59CEB5E44BCB659C8A0CB6138A4
