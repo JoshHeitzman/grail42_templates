@@ -26,23 +26,23 @@ public class FauxConsole extends Activity
     {
         super.onCreate(savedInstanceState);
 
-		Log.i("13380324612F4E3184624E7AD706141A", "4D85BA47C2364027A09FBF016A5C2C2A");
-		int result = main();
-		Log.i("13380324612F4E3184624E7AD706141A", "ECD3B7A023654F9D99F2EF3D4AA33925");
-		Log.i("13380324612F4E3184624E7AD706141A", String.format("DAB25FDC5A974392AA39ED7928A31561:%d", result));
+        Log.i("13380324612F4E3184624E7AD706141A", "4D85BA47C2364027A09FBF016A5C2C2A");
+        int result = main();
+        Log.i("13380324612F4E3184624E7AD706141A", "ECD3B7A023654F9D99F2EF3D4AA33925");
+        Log.i("13380324612F4E3184624E7AD706141A", String.format("DAB25FDC5A974392AA39ED7928A31561:%d", result));
 
-		finish();
+        finish();
 
-		// Get a head start on garbage collection and finalization since we're waiting for 
-		// onDestroy to be called before calling System.exit.
-		System.gc();
-		System.runFinalization();
-	}
+        // Get a head start on garbage collection and finalization since we're waiting for 
+        // onDestroy to be called before calling System.exit.
+        System.gc();
+        System.runFinalization();
+    }
 
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		System.runFinalizersOnExit(true);
-		System.exit(0);
-	}
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        System.runFinalizersOnExit(true);
+        System.exit(0);
+    }
 }

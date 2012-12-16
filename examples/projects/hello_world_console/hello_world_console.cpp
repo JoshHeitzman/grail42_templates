@@ -10,8 +10,8 @@ See accompanying file LICENSE_1_0.txt or online copies at:
 
 int faux_main()
 {
-	printf("Hello world.\n");
-	return 0;
+    printf("Hello world.\n");
+    return 0;
 }
 
 // 1 means that the nexe will be run from the commandline in sel_ldr (e.g. using %grail42_core_cmd%\nacl\faux_console\run_nexe_standalone.cmd)
@@ -27,44 +27,44 @@ int faux_main()
 #if defined(HWC_PLATFORM_WIN32) || (defined(HWC_PLATFORM_NACL) && defined(HWC_PLATFORM_NACL_STANDALONE))
 
 #if defined(HWC_PLATFORM_WIN32)
-int _tmain(int argc, _TCHAR* argv[])
+int _tmain(int, _TCHAR* [])
 #elif defined(HWC_PLATFORM_NACL_STANDALONE)
-int main(int argc, char* argv[])
+int main(int, char* [])
 #endif
 {
-	return faux_main();
+    return faux_main();
 }
 
 #elif defined(HWC_PLATFORM_ANDROID) || (defined(HWC_PLATFORM_NACL) && !defined(HWC_PLATFORM_NACL_STANDALONE))
 
 int faux_main_wrapper()
 {
-	int result = faux_main();
+    int result = faux_main();
 
-	// Stdout isn't automatically flushed on Android or NaCL, so explicitly flush it to ensure all output is logged 
-	// prior to shutdown.  On Android the stdout buffer between the JVM and native code doesn't appear to be shared 
-	// as flushing from the activity has no apparent effect.
-	fflush(stdout);
+    // Stdout isn't automatically flushed on Android or NaCL, so explicitly flush it to ensure all output is logged 
+    // prior to shutdown.  On Android the stdout buffer between the JVM and native code doesn't appear to be shared 
+    // as flushing from the activity has no apparent effect.
+    fflush(stdout);
 
-	return result;
+    return result;
 }
 
 #if defined(HWC_PLATFORM_ANDROID)
 
 extern "C" JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM * vm, void * reserved)
 {
-	// Flush the emmission of "In mgmain JNI_OnLoad" by another component prior to
-	// entering the faux main function, so it will be emitted prior to the start 
-	// marker emitted by the activity.
-	fflush(stdout);
+    // Flush the emmission of "In mgmain JNI_OnLoad" by another component prior to
+    // entering the faux main function, so it will be emitted prior to the start 
+    // marker emitted by the activity.
+    fflush(stdout);
 
-	// Returning JNI_VERSION_1_1 on Android 2.2 results in "JNI_OnLoad returned bad version (65537)".
-	return JNI_VERSION_1_2;
+    // Returning JNI_VERSION_1_1 on Android 2.2 results in "JNI_OnLoad returned bad version (65537)".
+    return JNI_VERSION_1_2;
 }
 
 extern "C" JNIEXPORT jint JNICALL Java_net_examples_hello_1world_1console_FauxConsole_main(JNIEnv * env, jobject  obj)
 {
-	return faux_main_wrapper();
+    return faux_main_wrapper();
 }
 
 #elif defined(HWC_PLATFORM_NACL)
@@ -72,32 +72,32 @@ extern "C" JNIEXPORT jint JNICALL Java_net_examples_hello_1world_1console_FauxCo
 class Instance : public pp::Instance
 {
 public:
-	explicit Instance(PP_Instance instance):
-		pp::Instance(instance)
-	{}
+    explicit Instance(PP_Instance instance):
+        pp::Instance(instance)
+    {}
 
-	virtual ~Instance() {}
+    virtual ~Instance() {}
 
-	virtual bool Init(uint32_t, const char* [], const char* [])
-	{
-		int result = faux_main_wrapper();
-		// TODO log result so it can be picked up by run_nexe_in_chrome.cmd
-		this->Instance::PostMessage(pp::Var("quit"));
-		return true;
-	}
+    virtual bool Init(uint32_t, const char* [], const char* [])
+    {
+        int result = faux_main_wrapper();
+        // TODO log result so it can be picked up by run_nexe_in_chrome.cmd
+        this->Instance::PostMessage(pp::Var("quit"));
+        return true;
+    }
 };
 
 class Module : public pp::Module
 {
 public:
-	// auto-generated default constructor is sufficient
+    // auto-generated default constructor is sufficient
 
-	virtual ~Module() {}
+    virtual ~Module() {}
 
-	virtual pp::Instance* CreateInstance(PP_Instance instance)
-	{
-		return new Instance(instance);
-	}
+    virtual pp::Instance* CreateInstance(PP_Instance instance)
+    {
+        return new Instance(instance);
+    }
 };
 
 namespace pp
@@ -105,7 +105,7 @@ namespace pp
 
 Module* CreateModule()
 {
-	return new ::Module();
+    return new ::Module();
 }
 
 }

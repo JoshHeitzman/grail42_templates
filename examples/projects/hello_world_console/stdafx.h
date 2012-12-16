@@ -9,10 +9,7 @@ See accompanying file LICENSE_1_0.txt or online copies at:
 #ifndef HG_6ED6281E3B354BAE95FD2C7E72CAF8D7
 #define HG_6ED6281E3B354BAE95FD2C7E72CAF8D7
 
-#pragma warning(push)
-#pragma warning(disable : 4068)
 #pragma once
-#pragma warning(pop)
 
 #include <stdio.h>
 
