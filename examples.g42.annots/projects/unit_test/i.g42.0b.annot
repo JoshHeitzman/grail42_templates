@@ -1,0 +1,47 @@
+[net.examples.unit_test]
+abstract.component.identifier
+platform.android.package.identifier
+platform.jvm.package.identifier
+aliases[0]=net_examples_unit_1test
+aliases[1]=net\examples\unit_test
+relation.superset=unit_test
+
+[unit_test]
+abstract.component.identifier
+abstract.project.identifier
+filesystem.file.name.complete.without.extension
+filesystem.directory.name.complete
+application.ide.vs.project.name
+
+[D227BB11-D83A-449D-B379-C6056E9CFEBA]
+uuid.random
+application.ide.vs.project.identifier
+
+[EECBC0AB-A606-4F3B-BDB1-30E7EEB374AA]
+uuid.random
+application.ide.vs.solution.identifier
+
+[86CE3F48-241A-4AA8-913B-9B93FE3DAC83]
+uuid.random
+application.ide.vs.solution.filter.identifier
+
+[6D33EB92-8789-4E0C-ACE4-FAB347096C83]
+uuid.random
+application.ide.vs.solution.filter.identifier
+
+[E675236C-67BB-42BB-A589-77831EE75F8C]
+uuid.random
+application.ide.vs.solution.filter.identifier
+
+[1D133765-0FCA-4AF7-9D3F-3DF19CD54A96]
+uuid.random
+application.ide.vs.solution.filter.identifier
+
+[legal.copyright.notice]
+partial_lines[0]=Copyright (C) 2012 Josh Heitzman
+partial_lines[1]=Distributed under the Boost Software License, Version 1.0.
+partial_lines[2]=See accompanying file LICENSE_1_0.txt or online copies at:
+partial_lines[3]=* http://www.boost.org/LICENSE_1_0.txt
+partial_lines[4]=* http://opensource.org/licenses/BSL-1.0
+partial_lines[5]=* http://directory.fsf.org/wiki/License:Boost1.0
+partial_lines[6]=* http://en.wikipedia.org/wiki/Boost_Software_License

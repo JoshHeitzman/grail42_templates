@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--                   Copyright (C) 2012 Josh Heitzman
+Distributed under the Boost Software License, Version 1.0.
+See accompanying file LICENSE_1_0.txt or online copies at:
+* http://www.boost.org/LICENSE_1_0.txt
+* http://opensource.org/licenses/BSL-1.0
+* http://directory.fsf.org/wiki/License:Boost1.0
+* http://en.wikipedia.org/wiki/Boost_Software_License                -->
+<html><head>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<script type="text/javascript">
+	function onMessage(message_event)
+	{
+		setTimeout('window.close()', 100);
+	}
+	document.addEventListener('message', onMessage, true);
+</script>
+</head><body>
+	<embed type="application/x-nacl" src="nacl/unit_test.nmf" style="visibility: hidden;" width=0 height=0/>
+</body></html>
