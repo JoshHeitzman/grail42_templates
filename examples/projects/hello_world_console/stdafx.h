@@ -36,9 +36,9 @@ See accompanying file LICENSE_1_0.txt or online copies at:
 
 #elif defined(HWC_PLATFORM_NACL)
 
-#include "ppapi/cpp/instance.h"
-#include "ppapi/cpp/module.h"
-#include "ppapi/cpp/var.h"
+#include <ppapi/cpp/instance.h>
+#include <ppapi/cpp/module.h>
+#include <ppapi/cpp/var.h>
 
 #endif // HWC_PLATFORM_*
 

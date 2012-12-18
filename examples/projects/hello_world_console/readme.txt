@@ -17,7 +17,7 @@ Overview
   in a Windows command prompt via the batch file that also starts and stops 
   the necessary simple web server.  The batch file is supplied by the Grail42 
   Core project at %grail42_core_cmd%\nacl\faux_console\run_nexe_in_chrome.cmd 
-  and %grail42_core_cmd%\nacl\run_nexe_standalone.cmd providesa convienence 
+  and %grail42_core_cmd%\nacl\run_nexe_standalone.cmd provides a convienence 
   batch file o run the plug-in standalone in sel_ldr*.exe
 
 Configuration|Platfrom Caveats and Notes
@@ -32,7 +32,7 @@ the IDE pickups up the correct define.
 Release|Android
 
 The Ant Build Type property is set to Debug rather than Release so that the apk 
-will be signed witha debug key.  Setting the property to Release requires 
+will be signed with a debug key.  Setting the property to Release requires 
 additional configuration or deployment will fail.
 
 *|PPAPI
