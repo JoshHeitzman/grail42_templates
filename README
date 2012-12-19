@@ -22,10 +22,11 @@ CLONETREE.PY
     
 Unit Test
 
-  Demonstrates a skeletal unit test project targeting Android NDK, the Chrome Native Client SDK, 
-  and the Windows SDK all the same Visual Studio 2010 project.  Both 32-bit and 64-bit platforms 
-  are supported for Windows and Chrome Native Client (NaCl).  Makes use of libraries and tools
-  supplied by the the Grail42 Core sibling project (see the Grail42 project referenced above).
+  Demonstrates a skeletal unit test project targeting Android NDK, the Chrome Native 
+  Client SDK, and the Windows SDK all the same Visual Studio 2010 project.  Both 32-bit 
+  and 64-bit platforms are supported for Windows and Chrome Native Client (NaCl).  Makes 
+  use of libraries and tools supplied by the the Grail42 Core sibling project (see the 
+  Grail42 project referenced above).
 
   Full details are provided at:
   https://github.com/JoshHeitzman/grail42_templates/blob/master/examples/projects/unit_test/readme.txt
