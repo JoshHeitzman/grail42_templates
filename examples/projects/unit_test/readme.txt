@@ -4,12 +4,44 @@ Overview
   Demonstrates a skeletal unit test project targeting Android NDK, the Chrome Native Client SDK, 
   and the Windows SDK all the same Visual Studio 2010 project.  Both 32-bit and 64-bit platforms 
   are supported for Windows and Chrome Native Client (NaCl).
+  
+Use as a template
+-----------------
 
+  <grail42 root> - e.g. c:\grail42
+  <python root> - e.g. c:\python27
+  <projects root> - e.g. c:\myprojects
+  <devenv path> - e.g. "C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\devenv.exe"
+  <batch file that set env vars required by Android and NaCl VS plug-ins> - batch file that sets:
+  ANDROID_SDK_ROOT, ANDROID_NDK_ROOT, ANT_HOME, NACL_SDK_ROOT, CHROME_PATH, NACL_EXE_STDOUT,
+  NACL_EXE_STDERR, and NACLLOG as per the instructions for the Android NDK and NaCl SDK.
+
+  If you only desire to use the Win32 and/or x64 platforms, you can skip steps 1 and 7 and just open
+  the solution normally and delete the Android and NaCl platforms.
+
+  1. <batch file that set env vars required by Android and NaCl VS plug-ins>
+  2. cd <grail42 root>\core\tools\windows_any\
+  3. grail42set_env_core_python_2_x.cmd <python root>\python.exe
+  4. cd <projects root>
+  5. %grail_python2_x_exe% %grail42_root%\templates\tools\python_2_x\clonetree.py %grail42_root%\templates\examples\projects\unit_test
+  
+    Modify the file that appears in notepad to be:
+
+net\examples\unit_test<-===->net\examples\mytest
+net.examples.unit_test<-===->net.examples.mytest
+unit_test<-===->mytest
+net_examples_unit_1test<-===->net_examples_mytest
+  
+    and close notepad saving the file.
+  
+  6. cd mytest
+  7. <devenv path> mytest.sln
+  
 Dependencies
 ------------
 
-  This project depends on the Template Unit Test Framework (TUT) located at 
-  http://tut-framework.sourceforge.net/ and the Core subproject of the Grail42 poject located at
+  This project depends on the boost library, the Template Unit Test Framework (TUT) located at 
+  http://tut-framework.sourceforge.net/ , and the Core subproject of the Grail42 poject located at
   https://github.com/JoshHeitzman/grail42 .  The Visual C++ includes need to contain TUT's header
   directory and Grail42 Core header directory %grail42_core_root%\library\cpp\include .
   
