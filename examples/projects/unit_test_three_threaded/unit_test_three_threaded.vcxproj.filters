@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="C/C++ Source Files">
+      <UniqueIdentifier>{9607D245-F2EF-4B0B-87E4-3D7F8470758D}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx</Extensions>
+    </Filter>
+    <Filter Include="C/C++ Header Files">
+      <UniqueIdentifier>{096D97E4-1E5C-4F8E-85DB-46DD5E81BDAE}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Android Package Files">
+      <UniqueIdentifier>{4F4E2861-A31B-4006-A537-08E12ED5A5AD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Java Source Files">
+      <UniqueIdentifier>{746CCC0D-467F-4D22-B67E-C1AD2FB7D9D6}</UniqueIdentifier>
+      <Extensions>java;class</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="android_package\AndroidManifest.xml">
+      <Filter>Android Package Files</Filter>
+    </None>
+    <None Include="android_package\src\net\examples\unit_test_three_threaded\FauxConsole.java">
+      <Filter>Java Source Files</Filter>
+    </None>
+    <None Include="android_package\build.xml">
+      <Filter>Android Package Files</Filter>
+    </None>
+    <None Include="android_package\res\values\strings.xml">
+      <Filter>Android Package Files</Filter>
+    </None>
+    <None Include="android_package\project.properties">
+      <Filter>Android Package Files</Filter>
+    </None>
+    <None Include="readme.txt" />
+    <None Include="index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>C/C++ Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="unit_test_three_threaded.cpp">
+      <Filter>C/C++ Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>C/C++ Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thread2.cpp">
+      <Filter>C/C++ Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thread3.cpp">
+      <Filter>C/C++ Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thread1.cpp">
+      <Filter>C/C++ Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="unit_test_three_threaded">
+    <property file="local.properties" />
+    <property file="ant.properties" />
+    <property environment="env" />
+    <property name="sdk.dir" value="${env.android_sdk_root}" />
+    <fail unless="sdk.dir" message="android_sdk_root environment variable not set." />
+    <loadproperties srcFile="project.properties" />
+    <import file="${sdk.dir}/tools/ant/build.xml" />
+</project>
