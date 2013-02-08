@@ -33,15 +33,15 @@ def print_usage_and_exit(error_msg=None):
     directory.
     
     For example:
-    %grail_python2_x_exe% clonetree.py %grail42_root%\templates\examples\projects\hello_world_console
+    %grail42_python2_x_exe% clonetree.py %grail42_root%\templates\examples\projects\hello_world_console
     """
     exit(1)
 
 # Steps for testing this script:
 # 1. cd /d %temp%
-# 2. %grail_python2_x_exe% %grail42_root%\templates\tools\python_2_x\clonetree.py %grail42_root%\templates\examples\projects\hello_world_console >clonetree.expected.txt
+# 2. %grail42_python2_x_exe% %grail42_root%\templates\tools\python_2_x\clonetree.py %grail42_root%\templates\examples\projects\hello_world_console >clonetree.expected.txt
 # 3. Make changes that need to be tested
-# 4. %grail_python2_x_exe% %grail42_root%\templates\tools\python_2_x\clonetree.py %grail42_root%\templates\examples\projects\hello_world_console >out.txt
+# 4. %grail42_python2_x_exe% %grail42_root%\templates\tools\python_2_x\clonetree.py %grail42_root%\templates\examples\projects\hello_world_console >out.txt
 # 5. "%ProgramFiles(x86)%\Microsoft SDKs\Windows\v7.0A\Bin\windiff.exe" clonetree.expected.txt out.txt
 #
 # Repeat steps 3-5 as needed.

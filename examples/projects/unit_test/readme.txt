@@ -23,7 +23,7 @@ Use as a template
   2. cd <grail42 root>\core\tools\windows_any\
   3. grail42set_env_core_python_2_x.cmd <python root>\python.exe
   4. cd <projects root>
-  5. %grail_python2_x_exe% %grail42_root%\templates\tools\python_2_x\clonetree.py %grail42_root%\templates\examples\projects\unit_test
+  5. %grail42_python2_x_exe% %grail42_root%\templates\tools\python_2_x\clonetree.py %grail42_root%\templates\examples\projects\unit_test
   
     Modify the file that appears in notepad to be:
 
@@ -40,10 +40,9 @@ net_examples_unit_1test<-===->net_examples_mytest
 Dependencies
 ------------
 
-  This project depends on the boost library, the Template Unit Test Framework (TUT) located at 
-  http://tut-framework.sourceforge.net/ , and the Core subproject of the Grail42 poject located at
-  https://github.com/JoshHeitzman/grail42 .  The Visual C++ includes need to contain TUT's header
-  directory and Grail42 Core header directory %grail42_core_root%\library\cpp\include .
+  This project depends on the boost library and the Core subproject of the Grail42 poject located at
+  https://github.com/JoshHeitzman/grail42 .  The Visual C++ includes need to contain the Grail42 
+  Core header directory %grail42_core_root%\library\cpp\include .
   
   The project makes use of the Grail42 faux console app infrastructure for Android and NaCl that 
   allows the unit test executable to executed from a Windows command prompt.  For Android this is
