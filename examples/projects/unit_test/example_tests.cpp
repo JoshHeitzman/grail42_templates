@@ -20,4 +20,22 @@ DEFINE_TEST()
     VERIFY(true);
 }
 
+DEFINE_TEST_PART_MT("t1")
+{
+    VERIFY(true);
+}
+DEFINE_TEST_PART_MT("t1")
+{
+    VERIFY(true);
+}
+
+DEFINE_TEST_PART_MT("t2")
+{
+    VERIFY(true);
+}
+DEFINE_TEST_PART_MT("t2")
+{
+    VERIFY(true);
+}
+
 END_TESTS()
